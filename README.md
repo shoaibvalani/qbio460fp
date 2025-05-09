@@ -1,45 +1,70 @@
-# qbio460fp
-Deep Learning Approaches for the Classification of Acute Lymphoblastic Leukemia in Peripheral Blood Smear Images
-
 Deep Learning for Acute Lymphoblastic Leukemia (ALL) Subtype Classification
 
+Abstract
+--------
+Acute Lymphoblastic Leukemia (ALL) is a common cancer requiring early and accurate diagnosis for effective treatment. 
+In this project, we explored how deep learning can improve the diagnosis process by classifying blood smear images 
+into four categories: Benign, Early Precursor, Pre-B, and Pro-B ALL. We compared a simple baseline CNN with several 
+advanced models (ResNet-50, VGG16, EfficientNetB0, and ViT-B/16), applying transfer learning and fine-tuning strategies. 
+All advanced architectures significantly outperformed the baseline CNN, with ViT-B/16 achieving the highest accuracy. 
+To understand the decision-making process of these models, we applied Grad-CAM to visualize which image regions influenced 
+the predictions. Our results highlight the potential of deep learning models to achieve more effective and consistent 
+leukemia diagnosis.
+
 Overview
+--------
+This project applies deep learning to classify Peripheral Blood Smear (PBS) images into four ALL subtypes:
+- Benign
+- Early Precursor
+- Pre-B
+- Pro-B
 
-This project explores deep learning approaches to classify Peripheral Blood Smear (PBS) images into four diagnostic categories of Acute Lymphoblastic Leukemia (ALL):
+We compare a baseline CNN with advanced models:
+- ResNet-50
+- VGG16
+- EfficientNetB0
+- Vision Transformer (ViT-B/16)
 
-Benign
-Early Precursor
-Pre-B
-Pro-B
-We compare a baseline CNN with several advanced architectures including ResNet-50, VGG16, EfficientNetB0, and ViT-B/16. We also apply Grad-CAM to evaluate model interpretability and highlight regions of influence on model predictions.
+We also use Grad-CAM to visualize model decision-making for interpretability.
+
+Dataset
+-------
+Leukemia Classification Dataset (Kaggle, Mehrad Aria, 2023)
+- 224x224 RGB blood smear images labeled into four classes.
 
 Key Features
+------------
+- Multi-class image classification using CNNs and Transformers.
+- Transfer learning with pretrained models.
+- Grad-CAM visualizations for model interpretability.
+- Comparative evaluation of model performance.
 
-Multi-class Leukemia Classification
-Transfer Learning with Pretrained Models
-Model Comparison Across CNNs and Vision Transformers
-Explainable AI with Grad-CAM Visualization
-Dataset
+File Structure
+--------------
+- `EDA.ipynb` – Exploratory data analysis.
+- `Augmentation.ipynb` – Data augmentation to address class imbalance.
+- `DimensionalityReduction.ipynb` – PCA and t-SNE visualizations.
+- `CNN.ipynb` – Baseline CNN model (built from scratch).
+- `basic_cnn_seq_model.h5` – Saved weights for the baseline CNN.
+- `ResNet50.ipynb` – ResNet-50 fine-tuning and evaluation.
+- `resnet50_augmented_model.h5` – Saved ResNet-50 model weights.
+- `VGG.ipynb` – VGG16 model training and evaluation.
+- `vgg_augmented_model.h5` – Saved VGG16 model weights.
+- `EfficientNet.ipynb` – EfficientNetB0 model training and fine-tuning.
+- `efficientnetb0_model.h5` – Saved EfficientNetB0 model weights.
+- `VisionTransformer.ipynb` – ViT-B/16 model training using PyTorch.
+- `vit_model.pth` – Saved ViT-B/16 model weights.
+- `GradCAM.ipynb` – Grad-CAM implementation and visualizations.
+- `Original/` – Original dataset folder (images organized by class).
+- `Segmented/` – Optional segmented cell images (not used in study).
 
-Leukemia Classification Dataset from Kaggle (Mehrad Aria, 2023)
-224x224 RGB blood smear images labeled into four classes
-Methods
+Team
+----
+- Iliyan Hariyani
+- Iliyan Valani
+- Shoaib Valani
 
-Data Preprocessing & Augmentation
-Model Training (CNN, ResNet-50, VGG16, EfficientNetB0, ViT-B/16)
-Performance Evaluation (Accuracy, Precision, Recall, F1-score, ROC)
-Model Explainability using Grad-CAM
-Results
-
-ViT-B/16 achieved the highest validation accuracy (99.49%).
-Grad-CAM provided insights into model focus, revealing strengths and limitations in clinical interpretability.
-Authors
-
-Iliyan Hariyani
-Iliyan Valani
-Shoaib Valani
 Advisors
-
-Professor Tsu-Pei Chiu
-Jesse Weller
-
+--------
+- Prof. Tsu-Pei Chiu
+- Jesse Weller
